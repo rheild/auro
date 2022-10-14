@@ -18,7 +18,7 @@ List the steps to reproduce the bug. Double check to make sure it's correct, and
 
 **Device Info**
 OS Version: [e.g. Windows 10 21H2]
-Browser Version: [e.g. Google Chrome v105.0.5195.127]
+Browser Version: [e.g. Google Chrome v105.0]
 Device (if mobile): [e.g. iPhone X]
 
 **Other**
