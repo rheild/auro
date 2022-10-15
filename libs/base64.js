@@ -44,17 +44,21 @@ const decode64 = (input) => {
     
     // convert to binary
     for (let i = 0; i < input.length; i++) {
-        let temp2 = Number("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=".search(input[i])).toString(2);
-        while (temp2.length < 6) {
-            temp2 = "0" + temp2;
-        }
-        
-        if (input[i] != "=") {
-            temp += temp2;
+        try {
+            let temp2 = Number("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=".search(input[i])).toString(2);
+            while (temp2.length < 6) {
+                temp2 = "0" + temp2;
+            }
+            
+            if (input[i] != "=") {
+                temp += temp2;
+            }
+        } catch (error) {
+            return undefined;
         }
     }
     
-    // split binary into bytes (then to decimal), which are then converted into ASCII characters
+    // split binary into bytes (then to decimal), which are converted into UTF-16 characters
     for (let i = 0; i < Math.floor(temp.length / 8) * 8; i += 8) {
         decoded += String.fromCharCode(parseInt(temp.slice(i, i + 8), 2));
     }
