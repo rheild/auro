@@ -5,6 +5,8 @@ Do not remove this notice.
 */
 
 const base64 = (input) => {
+    let base64 = '';
+    
     // to binary function
     const toBinary = (char) => {
         let binary = (char.charCodeAt('0') >>> 0).toString(2);
@@ -23,10 +25,21 @@ const base64 = (input) => {
     
     // convert binary to base64
     for (let i = 0; i < Math.ceil(binary.length / 6) * 6; i += 6) {
-        // split into sextet
+        // split into sextets and convert to decimal
         let temp = binary.slice(i, i + 6);
-        do () {
-        
+        while (temp.length < 6) {
+            temp += "0";
         }
+        
+        temp = parseInt(temp, 2);
+        
+        // convert to base64 charset
+        base64 += "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"[temp];
     }
+    
+    while (base64.length % 4 != 0) {
+        base64 += "=";
+    }
+    
+    return base64;
 }
