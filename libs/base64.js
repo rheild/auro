@@ -35,10 +35,6 @@ const base64 = (input) => {
         base64 += "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"[temp];
     }
     
-    while (base64.length % 4 != 0) {
-        base64 += "=";
-    }
-    
     return base64;
 }
 
@@ -57,8 +53,6 @@ const decode64 = (input) => {
             temp += temp2;
         }
     }
-    
-    console.log(temp);
     
     // split binary into bytes (then to decimal), which are then converted into ASCII characters
     for (let i = 0; i < Math.floor(temp.length / 8) * 8; i += 8) {
