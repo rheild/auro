@@ -1,6 +1,6 @@
 ---
 name: Bug report
-about: Create a report to help us improve
+about: Create a report to help improve this project
 title: Bug
 labels: ''
 assignees: ''
@@ -11,7 +11,7 @@ assignees: ''
 What went wrong?
 
 **Expected behavior**
-What is supposed to happen as opposed to the bug?
+What is supposed to happen in place of the bug?
 
 **To Reproduce**
 List the steps to reproduce the bug. Double check to make sure it's correct, and test the steps out again.
